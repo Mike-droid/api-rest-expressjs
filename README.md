@@ -17,3 +17,5 @@
 ### ¿Qué es una RESTful API?
 
 REST = Representational State Transfer.
+
+### GET: recibir parámetros

@@ -11,9 +11,59 @@ app.get('/nueva-ruta', (req, res) => {
 })
 
 app.get('/products', (req, res) => {
+  res.json([
+    {
+      name: 'Product 1',
+      price: 1000,
+    },
+    {
+      name: 'Product 2',
+      price: 1200,
+    }
+  ])
+})
+
+app.get('/products/:id', (req, res) => {
+  const { id } = req.params; //* tiene que ser igual que en los query params
+
   res.json({
-    name: 'Product 1',
-    price: 1000,
+    id,
+    name: 'Product 2',
+    price: 1200,
+  })
+})
+
+app.get('/categories/:categoryId/products/:productId', (req, res) => {
+  const { categoryId, productId } = req.params
+  res.json({
+    categoryId,
+    productId
+  })
+})
+
+app.get('/users', (req, res) => {
+  res.json([
+    {
+      username: 'mike',
+      email: 'mike@gmail.com',
+    },
+    {
+      username: 'freddy',
+      email: 'freddy@gmail.com',
+    },
+    {
+      username: 'john',
+      email: 'john@gmail.com',
+    }
+  ])
+})
+
+app.get('/users/:username&:email', (req, res) => {
+  const { username, email } = req.params
+
+  res.json({
+    username,
+    email
   })
 })
 
