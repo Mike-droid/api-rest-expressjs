@@ -11,3 +11,9 @@
 [Express.js](https://expressjs.com/)
 
 ### Routing con Express.js
+
+## CRUD
+
+### ¿Qué es una RESTful API?
+
+REST = Representational State Transfer.
