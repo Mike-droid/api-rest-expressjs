@@ -23,3 +23,5 @@ REST = Representational State Transfer.
 ### GET: parámetros query
 
 Para recordar: **TODOS LOS ENDPOINTS ESPECÍFICOS DEBEN IR ANTES DE LOS DINÁMICOS**. De no ser así, habrá conflictos entre las rutas.
+
+### Separación de responsabilidades con express.Router
