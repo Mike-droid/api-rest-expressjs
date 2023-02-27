@@ -31,3 +31,5 @@ Para recordar: **TODOS LOS ENDPOINTS ESPECÍFICOS DEBEN IR ANTES DE LOS DINÁMIC
 - [Postman](https://www.postman.com/)
 - [Insomnia](https://insomnia.rest/)
 - [Thunder Client for VS Code](https://www.thunderclient.com/)
+
+### POST: método para crear
