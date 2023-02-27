@@ -24,7 +24,9 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const { id } = req.params; //* tiene que ser igual que en los query params
 
-  res.json({
+  id === '999' ?
+  res.status(404).json({ message: "not found" }) :
+  res.status(200).json({
     id,
     name: faker.commerce.productName(),
     price: parseInt(faker.commerce.price(), 10),
@@ -35,8 +37,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const body = req.body
 
-  res.json({
-    message: 'created',
+  res.status(201).json({
+    message: 'product created',
     data: body
   })
 })

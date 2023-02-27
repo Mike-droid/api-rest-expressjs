@@ -35,3 +35,5 @@ Para recordar: **TODOS LOS ENDPOINTS ESPECÍFICOS DEBEN IR ANTES DE LOS DINÁMIC
 ### POST: método para crear
 
 ### PUT, PATCH y DELETE
+
+### Códigos de estado o HTTP response status codes
