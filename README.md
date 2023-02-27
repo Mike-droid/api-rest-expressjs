@@ -33,3 +33,5 @@ Para recordar: **TODOS LOS ENDPOINTS ESPECÍFICOS DEBEN IR ANTES DE LOS DINÁMIC
 - [Thunder Client for VS Code](https://www.thunderclient.com/)
 
 ### POST: método para crear
+
+### PUT, PATCH y DELETE
