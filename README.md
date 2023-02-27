@@ -25,3 +25,9 @@ REST = Representational State Transfer.
 Para recordar: **TODOS LOS ENDPOINTS ESPECÍFICOS DEBEN IR ANTES DE LOS DINÁMICOS**. De no ser así, habrá conflictos entre las rutas.
 
 ### Separación de responsabilidades con express.Router
+
+### Instalación de Postman o Insomnia
+
+- [Postman](https://www.postman.com/)
+- [Insomnia](https://insomnia.rest/)
+- [Thunder Client for VS Code](https://www.thunderclient.com/)
