@@ -1,21 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const { faker } = require('@faker-js/faker')
+const ProductsService = require('../services/product.service')
+const service = new ProductsService();
 
 router.get('/', (req, res) => {
-  const products = []
-  const { size } = req.query
-  const limit = size || 10
-
-  for(let index = 0; index < limit; index++) {
-    products.push({
-      name: faker.commerce.productName(),
-      price: parseInt(faker.commerce.price(), 10),
-      image: faker.image.imageUrl(),
-    })
-  }
-
+  const products = service.findAll()
   res.json(products)
 })
 
@@ -23,19 +13,14 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params; //* tiene que ser igual que en los query params
-
-  id === '999' ?
-  res.status(404).json({ message: "not found" }) :
-  res.status(200).json({
-    id,
-    name: faker.commerce.productName(),
-    price: parseInt(faker.commerce.price(), 10),
-    image: faker.image.imageUrl(),
-  })
+  const product = service.findOne(id)
+  res.json(product)
 })
 
 router.post('/', (req, res) => {
   const body = req.body
+  const { name, price, image } = body
+  service.create(name, price, image)
 
   res.status(201).json({
     message: 'product created',
@@ -46,6 +31,8 @@ router.post('/', (req, res) => {
 router.patch('/:id', (req, res) => {
   const { id } = req.params
   const body = req.body
+  const { name, price, image } = body
+  service.update(id, name, price, image)
 
   res.json({
     message: 'updated partial',
@@ -56,6 +43,7 @@ router.patch('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params
+  service.delete(id)
 
   res.json({
     message: 'deleted',
