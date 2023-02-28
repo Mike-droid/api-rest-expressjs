@@ -21,15 +21,15 @@ class UsersService {
     }
   }
 
-  findAll() {
+  async findAll() {
     return this.users
   }
 
-  findOne(id) {
+  async findOne(id) {
     return this.users.find(user => user.id === id)
   }
 
-  create(data) {
+  async create(data) {
     const newUser = {
       id: faker.datatype.uuid(),
       ...data
@@ -38,7 +38,7 @@ class UsersService {
     return newUser
   }
 
-  update(id, changes) {
+  async update(id, changes) {
     const index = findTheIndex(id, this.users)
 
     const user = this.users[index]
@@ -49,7 +49,7 @@ class UsersService {
     return this.users[index]
   }
 
-  delete(id) {
+  async delete(id) {
     const index = findTheIndex(id, this.users)
     this.users.splice(index, 1)
     return { id }

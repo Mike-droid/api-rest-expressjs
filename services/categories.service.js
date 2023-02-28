@@ -19,15 +19,15 @@ class CategoriesService {
     }
   }
 
-  findAll() {
+  async findAll() {
     return this.categories
   }
 
-  findOne(id) {
+  async findOne(id) {
     return this.categories.find(category => category.id === id)
   }
 
-  create(data) {
+  async create(data) {
     const newCategory = {
       id: faker.datatype.uuid(),
       ...data
@@ -36,7 +36,7 @@ class CategoriesService {
     return newCategory
   }
 
-  update(id, changes) {
+  async update(id, changes) {
     const index = findTheIndex(id, this.categories)
 
     const category = this.categories[index]
@@ -47,7 +47,7 @@ class CategoriesService {
     return this.categories[index]
   }
 
-  delete(id) {
+  async delete(id) {
     const index = findTheIndex(id, this.categories)
     this.categories.splice(index, 1)
     return { id }
