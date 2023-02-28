@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker')
+const findTheIndex = require('./findTheIndex')
 
 class ProductsService {
 
@@ -20,13 +21,13 @@ class ProductsService {
     }
   }
 
-  create(name, price, image) {
-    this.products.push({
+  create(data) {
+    const newProduct = {
       id: faker.datatype.uuid(),
-      name,
-      price,
-      image
-    })
+      ...data
+    }
+    this.products.push(newProduct)
+    return newProduct
   }
 
   findAll() {
@@ -37,19 +38,24 @@ class ProductsService {
     return this.products.find(item => item.id === id)
   }
 
-  update(id, name, price, image) {
-    const product = this.findOne(id)
+  update(id, changes) {
+    const index = findTheIndex(id, this.products)
 
-    name !== undefined ? product.name = name : null
-    price !== undefined ? product.price = price : null
-    image !== undefined ? product.image = image : null
-
-    return product
+    const product = this.products[index]
+    this.products[index] = {
+      ...product,
+      ...changes
+    }
+    return this.products[index]
   }
 
   delete(id) {
-    const product = this.findOne(id)
-    this.products.splice(product, 1)
+    const index = findTheIndex(id, this.products)
+    if (index === -1) {
+      throw new Error('Product not found')
+    }
+    this.products.splice(index, 1)
+    return { id };
   }
 }
 

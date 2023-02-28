@@ -19,36 +19,24 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   const body = req.body
-  const { name, price, image } = body
-  service.create(name, price, image)
+  const newProduct = service.create(body)
 
-  res.status(201).json({
-    message: 'product created',
-    data: body
-  })
+  res.status(201).json(newProduct)
 })
 
 router.patch('/:id', (req, res) => {
   const { id } = req.params
   const body = req.body
-  const { name, price, image } = body
-  service.update(id, name, price, image)
+  const product = service.update(id, body)
 
-  res.json({
-    message: 'updated partial',
-    data: body,
-    id
-  })
+  res.json(product)
 })
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params
-  service.delete(id)
+  const rta = service.delete(id)
 
-  res.json({
-    message: 'deleted',
-    id
-  })
+  res.json(rta)
 })
 
 module.exports = router;
