@@ -1,6 +1,8 @@
 const express = require('express');
 const routerApi = require('./routes/')
 
+const { logErrors, errorHandler } = require('./middlewares/error.handler')
+
 const app = express();
 const port = 3050;
 
@@ -11,6 +13,10 @@ app.get('/', (req, res) => {
 })
 
 routerApi(app);
+//! los middlewares se deben usar después de definir el routing
+//! el orden de ejecución será en como estén ordenados en el código
+app.use(logErrors);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

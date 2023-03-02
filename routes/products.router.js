@@ -11,15 +11,13 @@ router.get('/', async (req, res) => {
 
 //! Rutas específicas ANTES que rutas dinámicas
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params; //* tiene que ser igual que en los query params
     const product = await service.findOne(id)
     res.json(product)
   } catch (error) {
-    res.status(404).json({
-      message: error.message
-    })
+    next(error)
   }
 })
 
