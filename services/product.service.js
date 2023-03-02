@@ -1,5 +1,6 @@
 const { faker } = require('@faker-js/faker')
 const findTheIndex = require('./findTheIndex')
+const findOne = require('./findOne')
 
 class ProductsService {
 
@@ -17,6 +18,7 @@ class ProductsService {
         name: faker.commerce.productName(),
         price: parseInt(faker.commerce.price(), 10),
         image: faker.image.imageUrl(),
+        isBlocked: faker.datatype.boolean()
       })
     }
   }
@@ -35,7 +37,7 @@ class ProductsService {
   }
 
   async findOne(id) {
-    return this.products.find(item => item.id === id)
+    return findOne(id, this.products)
   }
 
   async update(id, changes) {
