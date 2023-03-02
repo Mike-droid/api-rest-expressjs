@@ -59,3 +59,7 @@ Middleware es software que permite uno o más tipos de comunicación o conectivi
 ### Validación de datos con Joi
 
 ### Probando nuestros endpoints
+
+### Middlewares populares en Express.js
+
+[Artículo en Platzi](https://platzi.com/clases/2485-backend-nodejs/41762-middlewares-populares-en-expressjs/)
