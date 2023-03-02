@@ -16,7 +16,7 @@ const options = {
   }
 } */
 
-app.use(cors)
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('Hello world from Express.js!');
