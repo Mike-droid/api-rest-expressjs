@@ -9,7 +9,7 @@ const port = process.env.PORT || 3050;
 
 app.use(express.json()) //* middleware
 
-const whiteList = ['http://127.0.0.1:5500', `http://localhost:${port}` ,'https://myapp.com']
+const whiteList = ['http://127.0.0.1:5500', `http://localhost:${port}` ,'https://myapp.com', 'https://api-rest-expressjs-production.up.railway.app/']
 const options = {
   origin: (origin, callback) => {
     whiteList.includes(origin || !origin) ? callback(null, true) : callback(new Error('No permitido'))
