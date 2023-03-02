@@ -55,3 +55,5 @@ Middleware es software que permite uno o más tipos de comunicación o conectivi
 ### Middleware para HttpErrors
 
 ### Manejo de errores con Boom
+
+### Validación de datos con Joi
