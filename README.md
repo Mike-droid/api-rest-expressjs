@@ -69,3 +69,17 @@ Middleware es software que permite uno o más tipos de comunicación o conectivi
 ### Consideraciones para producción
 
 ### Deployment a Heroku
+
+------------------------------------------------
+
+## Continuación con Docker y Postgresql
+
+## Bases de datos
+
+### Configuración de Postgres en Docker
+
+Para iniciar un proceso hacemos `docker-compose up -d <nombre_del_servicio>`
+
+Podemos ver los procesos que se están ejecutando con `docker-compose ps`
+
+Para detenerlos hacemos `docker-compose down <nombre_del_servicio>` o podemos omitir el nombre para que todos se detengan.
