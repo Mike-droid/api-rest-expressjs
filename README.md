@@ -83,3 +83,13 @@ Para iniciar un proceso hacemos `docker-compose up -d <nombre_del_servicio>`
 Podemos ver los procesos que se están ejecutando con `docker-compose ps`
 
 Para detenerlos hacemos `docker-compose down <nombre_del_servicio>` o podemos omitir el nombre para que todos se detengan.
+
+### Explorando Postgres: interfaces gráficas vs. terminal
+
+Nos podemos conectar al contenedor desde la terminal con `docker-compose exec <nombre_del_servicio> bash`
+
+Una vez en el contenedor, nos conectamos a la BBDD, en este caso con `psql -h localhost -d <DDBB_name> -U <user_name>`
+
+También podemos usar una interfaz gráfica con [pgadmin](https://www.pgadmin.org/)
+
+Al ser una interfaz web, nos podemos conectar usando la imagen de Docker [dpage/pgadmin4](https://hub.docker.com/r/dpage/pgadmin4/)
