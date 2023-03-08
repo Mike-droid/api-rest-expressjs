@@ -93,3 +93,23 @@ Una vez en el contenedor, nos conectamos a la BBDD, en este caso con `psql -h lo
 También podemos usar una interfaz gráfica con [pgadmin](https://www.pgadmin.org/)
 
 Al ser una interfaz web, nos podemos conectar usando la imagen de Docker [dpage/pgadmin4](https://hub.docker.com/r/dpage/pgadmin4/)
+
+### Integración de node-postgres
+
+Para conectar Node con Postgres usamos [node-postgres](https://node-postgres.com/)
+
+#### Serverless
+
+💡Es un tipo de arquitectura que nos permite descentralizar los diferentes recursos existentes de nuestra aplicación.
+
+En ocasiones, a serverless se le denomina sistemas distribuidos ya que permite, abstraer desde servidores hasta módulos denominados cloud functions.
+
+Una de las principales ventajas de implementar serverless es la creación de arquitecturas como cliente-servidor, micro-servicios, entre otros.
+
+#### Clean Architecture
+
+💡Es un conjunto de principios cuya finalidad principal es ocultar los detalles de implementación a la lógica de dominio de la aplicación.
+
+Las principal característica de Clean Architecture frente a otras arquitecturas es la regla de dependencia.
+
+En Clean Architecture, una aplicación se divide en responsabilidades y cada una de estas responsabilidades se representa en forma de capa.
