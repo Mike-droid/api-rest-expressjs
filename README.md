@@ -119,3 +119,5 @@ En Clean Architecture, una aplicación se divide en responsabilidades y cada una
 Un pool de conexiones es un conjunto limitado de conexiones a una base de datos, que es manejado por un servidor de aplicaciones de forma tal, que dichas conexiones pueden ser reutilizadas por los diferentes usuarios.
 
 De esta forma gestionamos las conexiones de una forma más óptima. Así evitamos crear clientes por cada consulta.
+
+### Variables de ambiente en Node.js
