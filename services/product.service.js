@@ -1,9 +1,7 @@
 const { faker } = require('@faker-js/faker')
 const findTheIndex = require('./findTheIndex')
 const findOne = require('./findOne')
-
-//const pool = require('../libs/postgres.pool')
-const sequelize = require('../libs/sequelize')
+const { models } = require('../libs/sequelize')
 
 class ProductsService {
 
@@ -36,12 +34,8 @@ class ProductsService {
   }
 
   async findAll() {
-    const query = 'SELECT * FROM tasks'
-    const [data, metadata] = await sequelize.query(query)
-    return {
-      data,
-      metadata
-    }
+    const response = await models.Product.findAll()
+    return response
   }
 
   async findOne(id) {

@@ -1,17 +1,11 @@
 const { faker } = require('@faker-js/faker')
 const findTheIndex = require('./findTheIndex')
-
-//const getConnection = require('../libs/postgres')
-const pool = require('../libs/postgres.pool')
-
 const { models } = require('../libs/sequelize')
 
 class UsersService {
   constructor() {
     this.users = []
     this.generate()
-    this.pool = pool
-    this.pool.on('error', (err) => console.error(err))
   }
 
   generate() {

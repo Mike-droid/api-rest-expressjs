@@ -8,8 +8,14 @@ const validatorHandler = require('./../middlewares/validator.handler')
 const { createProductSchema, updateProductSchema, getProductSchema } = require('./../schemas/product.schema')
 
 router.get('/', async (req, res) => {
-  const products = await service.findAll()
-  res.json(products)
+  try {
+    const products = await service.findAll()
+    res.json(products)
+  } catch (error) {
+    return {
+      errorMessage: error.message,
+    }
+  }
 })
 
 //! Rutas específicas ANTES que rutas dinámicas
@@ -58,7 +64,7 @@ router.delete('/:id', async (req, res) => {
     res.json(rta)
   } catch (error) {
     res.status(404).json({
-      message: error.message
+      errorMessage: error.message
     })
   }
 })
