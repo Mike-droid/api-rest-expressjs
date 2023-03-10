@@ -4,8 +4,9 @@ const findTheIndex = require('./findTheIndex')
 //const getConnection = require('../libs/postgres')
 const pool = require('../libs/postgres.pool')
 
-class UsersService {
+const { models } = require('../libs/sequelize')
 
+class UsersService {
   constructor() {
     this.users = []
     this.generate()
@@ -27,9 +28,8 @@ class UsersService {
   }
 
   async findAll() {
-    const query = 'SELECT * FROM tasks'
-    const response = await this.pool.query(query)
-    return response.rows
+    const response = await models.User.findAll()
+    return response
   }
 
   async findOne(id) {

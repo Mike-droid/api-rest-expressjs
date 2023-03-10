@@ -130,3 +130,7 @@ Si bien un ORM nos ahorra el tener que aprender SQL, NO es excusa para no aprend
 
 - [Sequielize](https://sequelize.org/)
 - [TypeORM](https://typeorm.io/)
+
+### Tu primer modelo en Sequelize
+
+Con Sequelize podemos crear métodos estáticos. Significa que no necesitamos instanciar objetos de la clase para poder acceder a ellos.
