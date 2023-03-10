@@ -1,15 +1,15 @@
 const { faker } = require('@faker-js/faker')
 const findTheIndex = require('./findTheIndex')
+const findOne = require('./findOne')
 
-const pool = require('../libs/postgres.pool')
+//const pool = require('../libs/postgres.pool')
+const sequelize = require('../libs/sequelize')
 
 class ProductsService {
 
   constructor() {
     this.products = []
     this.generate() //* Creará los productos iniciales
-    this.pool = pool
-    this.pool.on('error', (err) => console.error(err))
   }
 
   generate() {
@@ -37,15 +37,15 @@ class ProductsService {
 
   async findAll() {
     const query = 'SELECT * FROM tasks'
-    const response = await this.pool.query(query)
-    return response.rows
+    const [data, metadata] = await sequelize.query(query)
+    return {
+      data,
+      metadata
+    }
   }
 
   async findOne(id) {
-    //TODO: la petición GET aún no funciona
-    const query = `SELECT * FROM tasks WHERE id = ${id}`
-    const response = await this.pool.query(query, [id])
-    return response.rows
+    return findOne(id, this.products)
   }
 
   async update(id, changes) {

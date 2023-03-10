@@ -121,3 +121,12 @@ Un pool de conexiones es un conjunto limitado de conexiones a una base de datos,
 De esta forma gestionamos las conexiones de una forma más óptima. Así evitamos crear clientes por cada consulta.
 
 ### Variables de ambiente en Node.js
+
+## Sequelize
+
+### ¿Qué es un ORM? Instalación y configuración de Sequelize ORM
+
+Si bien un ORM nos ahorra el tener que aprender SQL, NO es excusa para no aprender el propio lenguaje de SQL. En queries complejas seguramente necesitaremos utilizar este lenguaje.
+
+- [Sequielize](https://sequelize.org/)
+- [TypeORM](https://typeorm.io/)
