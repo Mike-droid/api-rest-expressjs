@@ -147,3 +147,7 @@ Con Sequelize podemos crear métodos estáticos. Significa que no necesitamos in
 8. La respuesta, exitosa o de error se envía como respuesta al Frontend.
 
 Y así es como está funcionando nuestro backend hasta el momento.
+
+### Cambiando la base de datos a MySQL
+
+[Mysql with Docker](https://hub.docker.com/_/mysql)
