@@ -1,6 +1,6 @@
 const { faker } = require('@faker-js/faker')
-const findTheIndex = require('./findTheIndex')
 const { models } = require('../libs/sequelize')
+const boom = require('@hapi/boom')
 
 class UsersService {
   constructor() {
@@ -27,32 +27,27 @@ class UsersService {
   }
 
   async findOne(id) {
-    return this.users.find(user => user.id === id)
+    const user = await models.User.findByPk(id)
+    if (!user) {
+      throw boom.notFound('User not found')
+    }
+    return user
   }
 
   async create(data) {
-    const newUser = {
-      id: faker.datatype.uuid(),
-      ...data
-    }
-    this.users.push(newUser)
+    const newUser = await models.User.create(data)
     return newUser
   }
 
   async update(id, changes) {
-    const index = findTheIndex(id, this.users)
-
-    const user = this.users[index]
-    this.users[index] = {
-      ...user,
-      ...changes
-    }
-    return this.users[index]
+    const user = await this.findOne(id)
+    const response = await user.update(changes)
+    return response
   }
 
   async delete(id) {
-    const index = findTheIndex(id, this.users)
-    this.users.splice(index, 1)
+    const user = await this.findOne(id)
+    await user.destroy()
     return { id }
   }
 
