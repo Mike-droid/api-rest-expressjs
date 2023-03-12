@@ -151,3 +151,9 @@ Y así es como está funcionando nuestro backend hasta el momento.
 ### Cambiando la base de datos a MySQL
 
 [Mysql with Docker](https://hub.docker.com/_/mysql)
+
+## Migraciones
+
+### ¿Qué son las migraciones? Migraciones en Sequelize ORM
+
+Las migraciones mantienen el historial del esquema que vamos llevando en nuestra base de datos.
