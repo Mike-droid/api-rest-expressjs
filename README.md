@@ -157,3 +157,5 @@ Y así es como está funcionando nuestro backend hasta el momento.
 ### ¿Qué son las migraciones? Migraciones en Sequelize ORM
 
 Las migraciones mantienen el historial del esquema que vamos llevando en nuestra base de datos.
+
+### Configurando y corriendo migraciones con npm scripts
