@@ -159,3 +159,5 @@ Y así es como está funcionando nuestro backend hasta el momento.
 Las migraciones mantienen el historial del esquema que vamos llevando en nuestra base de datos.
 
 ### Configurando y corriendo migraciones con npm scripts
+
+### Modificando una entidad
