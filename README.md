@@ -161,3 +161,7 @@ Las migraciones mantienen el historial del esquema que vamos llevando en nuestra
 ### Configurando y corriendo migraciones con npm scripts
 
 ### Modificando una entidad
+
+## Relaciones
+
+### Relaciones uno a uno
