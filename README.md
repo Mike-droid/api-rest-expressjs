@@ -165,3 +165,5 @@ Las migraciones mantienen el historial del esquema que vamos llevando en nuestra
 ## Relaciones
 
 ### Relaciones uno a uno
+
+### Resolviendo las relaciones uno a uno
