@@ -1,57 +1,37 @@
-const { faker } = require('@faker-js/faker')
-const findTheIndex = require('./findTheIndex')
+const { models }= require('./../libs/sequelize');
 
 class CategoriesService {
 
-  constructor() {
-    this.categories = []
-    this.generate()
+  constructor(){
+  }
+  async create(data) {
+    const newCategory = await models.Category.create(data);
+    return newCategory;
   }
 
-  generate() {
-    const limit = 10
-
-    for(let index = 0; index < limit; index++) {
-      this.categories.push({
-        id: faker.datatype.uuid(),
-        name: faker.commerce.department(),
-      })
-    }
-  }
-
-  async findAll() {
-    return this.categories
+  async find() {
+    const categories = await models.Category.findAll();
+    return categories;
   }
 
   async findOne(id) {
-    return this.categories.find(category => category.id === id)
-  }
-
-  async create(data) {
-    const newCategory = {
-      id: faker.datatype.uuid(),
-      ...data
-    }
-    this.categories.push(newCategory)
-    return newCategory
+    const category = await models.Category.findByPk(id, {
+      include: ['products']
+    });
+    return category;
   }
 
   async update(id, changes) {
-    const index = findTheIndex(id, this.categories)
-
-    const category = this.categories[index]
-    this.categories[index] = {
-      ...category,
-      ...changes
-    }
-    return this.categories[index]
+    return {
+      id,
+      changes,
+    };
   }
 
   async delete(id) {
-    const index = findTheIndex(id, this.categories)
-    this.categories.splice(index, 1)
-    return { id }
+    return { id };
   }
+
 }
 
-module.exports = CategoriesService
+module.exports = CategoriesService;
