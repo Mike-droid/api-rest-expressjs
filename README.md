@@ -171,3 +171,7 @@ Las migraciones mantienen el historial del esquema que vamos llevando en nuestra
 ### Relaciones uno a muchos
 
 ### Resolviendo relaciones uno a muchos
+
+## Consultas
+
+### Órdenes de compra
