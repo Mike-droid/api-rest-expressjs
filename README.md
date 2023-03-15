@@ -177,3 +177,25 @@ Las migraciones mantienen el historial del esquema que vamos llevando en nuestra
 ### Órdenes de compra
 
 ### Relaciones muchos a muchos
+
+### Resolviendo relaciones muchos a muchos
+
+Importante:
+
+Si bien hacer esto en node.js no está mal:
+
+```javascript
+total: {
+  type: DataTypes.VIRTUAL,
+  get() {
+    if (this.items.length > 0) {
+      return this.items.reduce((total, item) => {
+        return total + (item.price * item.OrderProduct.amount);
+      }, 0)
+    }
+    return 0;
+  }
+}
+```
+
+Este cálculo puede llegar a ser pesado para el servidor y es mejor dejar ese tipo de cosas para las BBDD.
