@@ -52,7 +52,9 @@ const ProductSchema = {
 
 class Product extends Model {
   static associate(models) {
-    this.belongsTo(models.Category, { as: 'category' })
+    this.belongsTo(models.Category, {
+      foreignKey: 'id', as: 'category'
+    })
   }
 
   static config(sequelize) {

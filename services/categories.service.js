@@ -1,9 +1,8 @@
 const { models }= require('./../libs/sequelize');
 
 class CategoriesService {
+  constructor(){}
 
-  constructor(){
-  }
   async create(data) {
     const newCategory = await models.Category.create(data);
     return newCategory;
