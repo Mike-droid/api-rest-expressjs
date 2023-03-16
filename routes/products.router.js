@@ -5,18 +5,24 @@ const ProductsService = require('../services/product.service')
 const service = new ProductsService();
 
 const validatorHandler = require('./../middlewares/validator.handler')
-const { createProductSchema, updateProductSchema, getProductSchema } = require('./../schemas/product.schema')
+const {
+  createProductSchema,
+  updateProductSchema,
+  getProductSchema,
+  queryProductSchema
+} = require('./../schemas/product.schema')
 
-router.get('/', async (req, res) => {
-  try {
-    const products = await service.findAll()
-    res.json(products)
-  } catch (error) {
-    return {
-      errorMessage: error.message,
+router.get('/',
+  validatorHandler(queryProductSchema, 'query'),
+  async (req, res, next) => {
+    try {
+      const products = await service.findAll(req.query)
+      res.json(products)
+    } catch (error) {
+      next(error)
     }
   }
-})
+)
 
 //! Rutas específicas ANTES que rutas dinámicas
 
