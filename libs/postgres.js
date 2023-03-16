@@ -2,7 +2,7 @@ const { Client } = require('pg');
 
 const getConnection = async () => {
   const client = new Client({
-    host: 'localhost',
+    host: process.env.PSQL_HOST || 'localhost',
     port: 5432,
     user: 'mike',
     password: 'ADMIN1998',
