@@ -204,3 +204,5 @@ Este cálculo puede llegar a ser pesado para el servidor y es mejor dejar ese ti
 
 - Limit → Número de elementos que deseo traer. Límite de elementos que deseo traer en cada página.
 - Offset → Apuntador, es decir, cuántos elementos quiero escapar.
+
+### Filtrando precios con operadores
